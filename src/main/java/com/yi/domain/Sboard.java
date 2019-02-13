@@ -6,7 +6,7 @@ public class Sboard {
 	private int sbno;
 	private UserVO userid;
 	private String stitle;
-	private String scontext;
+	private String scontent;
 	private Date sregdate;
 	private int sviewcnt;
 	public int getSbno() {
@@ -27,12 +27,7 @@ public class Sboard {
 	public void setStitle(String stitle) {
 		this.stitle = stitle;
 	}
-	public String getScontext() {
-		return scontext;
-	}
-	public void setScontext(String scontext) {
-		this.scontext = scontext;
-	}
+	
 	public Date getSregdate() {
 		return sregdate;
 	}
@@ -45,9 +40,15 @@ public class Sboard {
 	public void setSviewcnt(int sviewcnt) {
 		this.sviewcnt = sviewcnt;
 	}
+	public String getScontent() {
+		return scontent;
+	}
+	public void setScontent(String scontent) {
+		this.scontent = scontent;
+	}
 	@Override
 	public String toString() {
-		return "Sboard [sbno=" + sbno + ", userid=" + userid + ", stitle=" + stitle + ", scontext=" + scontext
+		return "Sboard [sbno=" + sbno + ", userid=" + userid + ", stitle=" + stitle + ", scontent=" + scontent
 				+ ", sregdate=" + sregdate + ", sviewcnt=" + sviewcnt + "]";
 	}
 	
