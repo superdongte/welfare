@@ -20,5 +20,4 @@ public class VolunteerVO {
 		return "VolunteerVO [vnumber=" + vnumber + ", vname=" + vname + "]";
 	}
 	
-	
 }
