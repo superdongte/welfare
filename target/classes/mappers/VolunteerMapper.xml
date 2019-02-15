@@ -3,5 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.VolunteerMapper">
+	<insert id="insertVol">
+		insert into volunteer(vnumber, vname)
+		value(#{vnumber},#{vname})
+	</insert>
 	
+	<select id="listAllVol" resultType="VolunteerVO">
+		select*
+		from volunteer
+	</select>
+	
+	<update id="updateVol">
+		update volunteer
+		set vname = #{vname}
+		where vnumber = #{vnumber}
+	</update>
+	
+	<delete id="deleteVol">
+		delete from volunteer
+		where vnumber = #{vnumber}
+	</delete>
 </mapper>

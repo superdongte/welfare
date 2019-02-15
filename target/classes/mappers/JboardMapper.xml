@@ -3,5 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.JboardMapper">
+	<insert id="insertJboard">
+		insert into job_board(jbno, userid, ornum, jtitle, jcontent, jregdate, jviewcnt)
+		value(#{jbno}, #{userid}, #{ornum}, #{jtitle}, #{jcontent}, #{jregdate}, #{jviewcnt})
+	</insert>
 	
+	<select id="listAllJboard" resultType="JboardVO">
+		select jbno, jtitle, orname , jregdate, jviewcnt
+		from job_board as j join organize as o on j.ornum = o.ornum
+	</select>
+	
+	<select id="readJboard" resultType="JboardVO">
+		select *
+		from job_board
+		where jbno = #{jbno}
+	</select>
+	
+	<update id="updateJboard">
+		update job_board
+		set jtitle = #{jtitle}, jcontent = #{jcontent}
+		where jbno = #{jbno}
+	</update>
+	
+	<delete id="deleteJboard">
+		delete
+		from job_board
+		where jbno = #{jbno}
+	</delete>
 </mapper>

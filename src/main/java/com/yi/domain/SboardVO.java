@@ -9,6 +9,7 @@ public class SboardVO {
 	private String scontent;
 	private Date sregdate;
 	private int sviewcnt;
+	
 	public int getSbno() {
 		return sbno;
 	}

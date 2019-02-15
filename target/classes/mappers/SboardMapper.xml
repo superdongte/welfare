@@ -3,5 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.SboardMapper">
-
+	
+	<insert id="insertSboard">
+		insert into site_board(sbno, userid, stitle, scontent, sregdate, sviewcnt)
+		value(#{sbno}, #{userid}, #{stitle}, #{scontent}, #{sregdate}, #{sviewcnt})
+	</insert>
+	
+	<select id="readSboard" resultType="SboardVO">
+	 	select *
+	 	from site_board
+	 	where sbno = #{sbno}
+	</select>
+	
+	<select id="listSboardAll" resultType="SboardVO">
+		select *
+		from site_board
+	</select>
+	
+	<update id="updateSboard">
+		update site_board
+		set stitle = #{stitle}, scontent = #{scontent}
+		where sbno = #{sbno}
+	</update>
+	
+	<delete id="deleteSboard">
+		delete from site_board
+		where sbno = #{sbno}
+	</delete>
 </mapper>

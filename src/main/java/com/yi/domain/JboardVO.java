@@ -4,27 +4,29 @@ import java.util.Date;
 
 public class JboardVO {
 	private int jbno;
-	private UserVO userid;
-	private OrganizeVO ornum;
+	private String userid;
+	private int ornum;
 	private String jtitle;
 	private String jcontent;
 	private Date jregdate;
+	private int jviewcnt;
 	public int getJbno() {
 		return jbno;
 	}
 	public void setJbno(int jbno) {
 		this.jbno = jbno;
 	}
-	public UserVO getUserid() {
+	
+	public String getUserid() {
 		return userid;
 	}
-	public void setUserid(UserVO userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public OrganizeVO getOrnum() {
+	public int getOrnum() {
 		return ornum;
 	}
-	public void setOrnum(OrganizeVO ornum) {
+	public void setOrnum(int ornum) {
 		this.ornum = ornum;
 	}
 	public String getJtitle() {
@@ -45,11 +47,18 @@ public class JboardVO {
 	public void setJregdate(Date jregdate) {
 		this.jregdate = jregdate;
 	}
+	public int getJviewcnt() {
+		return jviewcnt;
+	}
+	public void setJviewcnt(int jviewcnt) {
+		this.jviewcnt = jviewcnt;
+	}
 	@Override
 	public String toString() {
-		return "Jboard [jbno=" + jbno + ", userid=" + userid + ", ornum=" + ornum + ", jtitle=" + jtitle + ", jcontent="
-				+ jcontent + ", jregdate=" + jregdate + "]";
+		return "JboardVO [jbno=" + jbno + ", userid=" + userid + ", ornum=" + ornum + ", jtitle=" + jtitle
+				+ ", jcontent=" + jcontent + ", jregdate=" + jregdate + ", jviewcnt=" + jviewcnt + "]";
 	}
+	
 	
 	
 }

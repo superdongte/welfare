@@ -1,12 +1,14 @@
 package com.yi.domain;
 
 public class VolunteerVO {
-	private String vnumber;
+	private int vnumber;
 	private String vname;
-	public String getVnumber() {
+	
+	
+	public int getVnumber() {
 		return vnumber;
 	}
-	public void setVnumber(String vnumber) {
+	public void setVnumber(int vnumber) {
 		this.vnumber = vnumber;
 	}
 	public String getVname() {

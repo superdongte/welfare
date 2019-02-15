@@ -1,21 +1,24 @@
 package com.yi.domain;
 
+import java.util.Date;
+
 public class FreplyVO {
 	private int frno;
-	private FboardVO fbno;
+	private int fbno;
 	private String frwriter;
 	private String frcontent;
-	private String frregdate;
+	private Date frregdate;
+	
 	public int getFrno() {
 		return frno;
 	}
 	public void setFrno(int frno) {
 		this.frno = frno;
 	}
-	public FboardVO getFbno() {
+	public int getFbno() {
 		return fbno;
 	}
-	public void setFbno(FboardVO fbno) {
+	public void setFbno(int fbno) {
 		this.fbno = fbno;
 	}
 	public String getFrwriter() {
@@ -30,17 +33,19 @@ public class FreplyVO {
 	public void setFrcontent(String frcontent) {
 		this.frcontent = frcontent;
 	}
-	public String getFrregdate() {
+	
+	public Date getFrregdate() {
 		return frregdate;
 	}
-	public void setFrregdate(String frregdate) {
+	public void setFrregdate(Date frregdate) {
 		this.frregdate = frregdate;
 	}
 	@Override
 	public String toString() {
-		return "Freply [frno=" + frno + ", fbno=" + fbno + ", frwriter=" + frwriter + ", frcontent=" + frcontent
+		return "FreplyVO [frno=" + frno + ", fbno=" + fbno + ", frwriter=" + frwriter + ", frcontent=" + frcontent
 				+ ", frregdate=" + frregdate + "]";
 	}
+	
 	
 	
 }

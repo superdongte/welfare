@@ -1,8 +1,8 @@
 package com.yi.domain;
 
 public class SupportVO {
-	private UserVO userid;
-	private VolunteerVO vnumber;
+	private String userid;
+	private int vnumber;
 	private boolean vgroup;
 	private String vtime;
 	private String carrer;
@@ -10,16 +10,17 @@ public class SupportVO {
 	private String dgroup;
 	private int dmoney;
 	private String dmode;
-	public UserVO getUserid() {
+	
+	public String getUserid() {
 		return userid;
 	}
-	public void setUserid(UserVO userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public VolunteerVO getVnumber() {
+	public int getVnumber() {
 		return vnumber;
 	}
-	public void setVnumber(VolunteerVO vnumber) {
+	public void setVnumber(int vnumber) {
 		this.vnumber = vnumber;
 	}
 	public boolean isVgroup() {

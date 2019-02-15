@@ -3,5 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.FrnoMapper">
+	<insert id="insertFreply">
+		insert into free_rno (frno, fbno, frwriter, frcontent, frregdate )
+		value(#{frno}, #{fbno}, #{frwriter}, #{frcontent}, #{frregdate})
+	</insert>
 	
+	<select id="listAllFreply" resultType="FreplyVO">
+		select *
+		from free_rno
+	</select>
+	
+	<update id="updateFreply">
+		update free_rno
+		set frcontent = #{frcontent}
+		where frno = #{frno}	
+	</update>
+	
+	<delete id="deleteFreply">
+		delete from free_rno
+		where frno = #{frno}
+	</delete>
 </mapper>

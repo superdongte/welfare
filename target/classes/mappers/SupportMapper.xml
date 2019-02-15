@@ -3,5 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.SupportMapper">
-	
+	<insert id="insertSupport">
+		insert into support(userid, vnumber, vgroup, vtime, carrer, vreason, dgroup, dmoney, dmode)
+		value(#{userid}, #{vnumber}, #{vgroup}, #{vtime}, #{carrer}, #{vreason}, #{dgroup}, #{dmoney}, #{dmode})
+	</insert>
 </mapper>

@@ -3,5 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.OrganizeMapper">
+	<insert id="insertOrganize">
+		insert into organize(ornum, orname)
+		value(#{ornum}, #{orname})
+	</insert>
 	
+	<select id="selectAllOranize" resultType="OrganizeVO">
+		select *
+		from organize
+	</select>
+	
+	<update id="updateOrganize">
+		update organize
+		set orname = #{orname}
+		where ornum = #{ornum}
+	</update>
+	
+	<delete id="deleteOraganize">
+		delete from organize
+		where ornum = #{ornum}
+	</delete>
 </mapper>
