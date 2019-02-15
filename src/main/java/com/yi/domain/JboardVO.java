@@ -2,10 +2,10 @@ package com.yi.domain;
 
 import java.util.Date;
 
-public class Jboard {
+public class JboardVO {
 	private int jbno;
 	private UserVO userid;
-	private Organize ornum;
+	private OrganizeVO ornum;
 	private String jtitle;
 	private String jcontent;
 	private Date jregdate;
@@ -21,10 +21,10 @@ public class Jboard {
 	public void setUserid(UserVO userid) {
 		this.userid = userid;
 	}
-	public Organize getOrnum() {
+	public OrganizeVO getOrnum() {
 		return ornum;
 	}
-	public void setOrnum(Organize ornum) {
+	public void setOrnum(OrganizeVO ornum) {
 		this.ornum = ornum;
 	}
 	public String getJtitle() {

@@ -2,9 +2,9 @@ package com.yi.domain;
 
 import java.util.Date;
 
-public class Sboard {
+public class SboardVO {
 	private int sbno;
-	private UserVO userid;
+	private String userid;
 	private String stitle;
 	private String scontent;
 	private Date sregdate;
@@ -15,10 +15,10 @@ public class Sboard {
 	public void setSbno(int sbno) {
 		this.sbno = sbno;
 	}
-	public UserVO getUserid() {
+	public String getUserid() {
 		return userid;
 	}
-	public void setUserid(UserVO userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 	public String getStitle() {
@@ -51,6 +51,7 @@ public class Sboard {
 		return "Sboard [sbno=" + sbno + ", userid=" + userid + ", stitle=" + stitle + ", scontent=" + scontent
 				+ ", sregdate=" + sregdate + ", sviewcnt=" + sviewcnt + "]";
 	}
+	
 	
 	
 }

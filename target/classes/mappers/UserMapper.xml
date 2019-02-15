@@ -3,5 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.UserMapper">
+	<insert id="insertUser">
+		insert into user (userid, userpw, username, tel, birth, email, photo, admin)
+		value(#{userid}, #{userpw}, #{username}, #{tel}, #{birth}, #{email}, #{photo}, #{admin})
+	</insert>
 	
+	<select id="readUser" resultType="UserVO">
+		select *
+		from user
+		where userid = #{userid}
+	</select>
+	
+	<select id="userlistAll" resultType="UserVO">
+		select *
+		from user
+	</select>
+	
+	<update id="updateUser">
+		update user
+		set userpw = #{userpw}, username = #{username}, tel = #{tel}, email = #{email}, photo = #{photo}  
+		where userid = #{userid}
+	</update>
+	
+	<delete id="deleteUser">
+		delete from user
+		where userid = #{userid}
+	</delete>
 </mapper>

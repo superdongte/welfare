@@ -2,9 +2,9 @@ package com.yi.domain;
 
 import java.util.Date;
 
-public class Fboard {
+public class FboardVO {
 	private int fbno;
-	private UserVO userid;
+	private String userid;
 	private boolean fgroup;
 	private String ftitle;
 	private String fcontent;
@@ -18,10 +18,11 @@ public class Fboard {
 	public void setFbno(int fbno) {
 		this.fbno = fbno;
 	}
-	public UserVO getUserid() {
+	
+	public String getUserid() {
 		return userid;
 	}
-	public void setUserid(UserVO userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 	public boolean isFgroup() {
@@ -66,6 +67,7 @@ public class Fboard {
 				+ ", fcontent=" + fcontent + ", fregdate=" + fregdate + ", fviewcnt=" + fviewcnt + ", freplycnt="
 				+ freplycnt + "]";
 	}
+	
 	
 	
 }

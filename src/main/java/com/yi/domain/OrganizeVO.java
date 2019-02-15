@@ -1,6 +1,6 @@
 package com.yi.domain;
 
-public class Organize {
+public class OrganizeVO {
 	private int ornum;
 	private String orname;
 	public int getOrnum() {

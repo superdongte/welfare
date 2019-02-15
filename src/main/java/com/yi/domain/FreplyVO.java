@@ -1,8 +1,8 @@
 package com.yi.domain;
 
-public class Freply {
+public class FreplyVO {
 	private int frno;
-	private Fboard fbno;
+	private FboardVO fbno;
 	private String frwriter;
 	private String frcontent;
 	private String frregdate;
@@ -12,10 +12,10 @@ public class Freply {
 	public void setFrno(int frno) {
 		this.frno = frno;
 	}
-	public Fboard getFbno() {
+	public FboardVO getFbno() {
 		return fbno;
 	}
-	public void setFbno(Fboard fbno) {
+	public void setFbno(FboardVO fbno) {
 		this.fbno = fbno;
 	}
 	public String getFrwriter() {

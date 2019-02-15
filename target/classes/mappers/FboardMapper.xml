@@ -3,5 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.FboardMapper">
+	<insert id="insertFboard">
+		insert into free_board(userid, fgroup, ftitle, fcontent, fregdate, fviewcnt, freplycnt)
+		value(#{userid}, #{fgroup}, #{ftitle}, #{fcontent}, #{fregdate}, #{fviewcnt}, #{freplycnt})	
+	</insert>
 	
+	<select id="listAllFboard" resultType="FboardVO">
+		select *
+		from free_board
+	</select>
+	
+	<select id="readFboard" resultType="FboardVO">
+		select *
+		from free_board
+		where fbno = #{fbno}
+	</select>
+	
+	<update id="updateFboard">
+		update free_board
+		set ftitle = #{ftitle}, fcontent = #{fcontent} 
+		where fbno = #{fbno}
+	</update>
+	
+	<delete id="deleteFboard">
+		delete from free_board
+		where fbno = #{fbno}
+	</delete>
 </mapper>
