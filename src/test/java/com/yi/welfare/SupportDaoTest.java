@@ -1,5 +1,7 @@
 package com.yi.welfare;
 
+import java.util.List;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,9 +30,23 @@ public class SupportDaoTest {
 		vo.setVtime("우주끝까안지");
 		vo.setCarrer("꽤 많이안함");
 		vo.setVreason("걍한다");
-		vo.setDgroup(null);
-		vo.setDmoney(0);
-		vo.setDmode(null);
-		dao.insertSupport(vo);
+		dao.insertVolunteer(vo);
+	}
+	@Test
+	public void Test02insertMoney() {
+		SupportVO vo = new SupportVO();
+		vo.setUserid("test1");
+		vo.setVgroup(false);
+		vo.setDgroup("잔반");
+		vo.setDmoney(4000);
+		vo.setDmode("짬차와 함께");
+		dao.insertMoney(vo);
+	}
+	@Test
+	public void Test03listSupport() {
+		List<SupportVO> list = dao.listSupport();
+		for(SupportVO support : list) {
+			System.out.println(support);
+		}
 	}
 }

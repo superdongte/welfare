@@ -1,10 +1,10 @@
-package com.yi.persistence;
+package com.yi.service;
 
 import java.util.List;
 
 import com.yi.domain.UserVO;
 
-public interface UserDAO {
+public interface UserService {
 	public void insertUser(UserVO vo);
 	public UserVO readUser(String userid);
 	public List<UserVO> userlistAll();

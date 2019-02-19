@@ -1,54 +1,52 @@
-package com.yi.persistence;
+package com.yi.service;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.yi.domain.UserVO;
-@Repository
-public class UserDaoImpl implements UserDAO {
-
-	@Autowired
-	private SqlSession sqlSession;
+import com.yi.persistence.UserDAO;
+@Service
+public class UserServiceImpl implements UserService {
 	
-	private static final String namespace = "com.yi.mapper.UserMapper";
+	@Autowired
+	UserDAO dao;
 	
 	@Override
 	public void insertUser(UserVO vo) {
 		// TODO Auto-generated method stub
-		sqlSession.insert(namespace + ".insertUser", vo); 
+		dao.insertUser(vo);
 	}
 
 	@Override
 	public UserVO readUser(String userid) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace +".readUser", userid);
+		return null;
 	}
 
 	@Override
 	public List<UserVO> userlistAll() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace +".userlistAll");
+		return null;
 	}
 
 	@Override
 	public void updateUser(UserVO vo) {
 		// TODO Auto-generated method stub
-		sqlSession.update(namespace + ".updateUser", vo);
+
 	}
 
 	@Override
 	public void deleteUser(String userid) {
 		// TODO Auto-generated method stub
-		sqlSession.delete(namespace + ".deleteUser", userid);
+
 	}
 
 	@Override
 	public void dulUserid(UserVO vo) {
 		// TODO Auto-generated method stub
-		sqlSession.selectOne(namespace + ".dulUserid", vo);
+		dao.dulUserid(vo);
 	}
 
 }

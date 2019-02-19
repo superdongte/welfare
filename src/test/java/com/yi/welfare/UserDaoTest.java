@@ -21,7 +21,7 @@ public class UserDaoTest {
 	@Autowired
 	private UserDAO dao;
 	
-	@Test
+	//@Test
 	public void Test01insertUser() {
 		UserVO vo = new UserVO();
 		vo.setUserid("test21");
@@ -34,18 +34,18 @@ public class UserDaoTest {
 		vo.setAdmin(true);
 		dao.insertUser(vo);
 	}
-	@Test
+	//@Test
 	public void Test02readUser() {
 		System.out.println(dao.readUser("test21"));
 	}
-	@Test
+	//@Test
 	public void Test03userlistAll() {
 		List<UserVO> list = dao.userlistAll();
 		for(UserVO user: list) {
 			System.out.println(user);
 		}
 	}
-	@Test
+	//@Test
 	public void Test04updateUser() {
 		UserVO vo = new UserVO();
 		vo.setUserid("test21");
@@ -56,8 +56,14 @@ public class UserDaoTest {
 		vo.setPhoto("bback.jpg");
 		dao.updateUser(vo);
 	}
-	@Test
+	//@Test
 	public void Test05deleteUser() {
 		dao.deleteUser("test21");
+	}
+	@Test
+	public void Test06dulUserid() {
+		UserVO vo = new UserVO();
+		vo.setUserid("test1");
+		dao.dulUserid(vo);
 	}
 }

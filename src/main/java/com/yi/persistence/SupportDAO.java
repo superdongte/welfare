@@ -1,7 +1,11 @@
 package com.yi.persistence;
 
+import java.util.List;
+
 import com.yi.domain.SupportVO;
 
 public interface SupportDAO {
-	public void insertSupport(SupportVO vo);
+	public void insertVolunteer(SupportVO vo);
+	public void insertMoney(SupportVO vo);
+	public List<SupportVO> listSupport(); 
 }

@@ -29,4 +29,10 @@
 		delete from user
 		where userid = #{userid}
 	</delete>
+	
+	<select id="dulUserid" resultType="UserVO">
+		select userid
+		from user
+		where userid = #{userid}
+	</select>
 </mapper>
