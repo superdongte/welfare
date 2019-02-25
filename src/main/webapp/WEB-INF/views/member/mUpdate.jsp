@@ -124,17 +124,13 @@
 			if(photo == ""){
 				alert("사진을 첨부해주세요")
 				return false;
-			}
-			if(idck == 0){
-				alert("아이디 중복체크를 해주세요")
-				return false;
-			}			
-		})
+			}				
+		})	
 			$("#files").on('change', function(){
 				readURL(this);
-		})
+			})
 	})
-			function readURL(input){
+		function readURL(input){
 			if(input.files && input.files[0]){
 				var reader = new FileReader();
 				
@@ -174,7 +170,7 @@
 		width:200px;
 		height:135px;
 		margin-top:10px;
-		margin-right: 55px;
+		margin-right: 70px;
 	}
 </style>
 </head>
@@ -185,57 +181,50 @@
     <div class="col-sm-3"></div>
     
     <div class="col-sm-6">
-    <h2>회원가입</h2>
-        <form action="mRegist" method="post" enctype="multipart/form-data">
+    <h2>회원수정</h2>
+        <form action="mUpdate" method="post" enctype="multipart/form-data">
         <table class="table table-boardered">
             <tr>
                 <th>아이디</th>
-                <td><input type="text" class="form-control" name="userid" placeholder="id를 넣으세요" id="userid"></td>
-                <td><input type="button" class="form-control" value="중복체크" id="dul"></td>                   
+                <td><input type="text" class="form-control" name="userid" readonly="readonly" id="userid" value="${userid.userid}"></td>                 
             </tr>
             <tr>
                 <th>패스워드</th>
-                <td><input type="password" class="form-control" name="userpw" placeholder="비밀번호는 영문만 넣어주세요" id="userpw"></td>      
+                <td><input type="password" class="form-control" name="userpw" placeholder="비밀번호는 영문만 넣어주세요" id="userpw" value="${userid.userpw}"></td>      
             </tr>
              
             <tr>
                 <th>패스워드확인</th>
-                <td><input type="password" class="form-control" name="pass2" placeholder="확인 해주세요" id="userpw2"></td>        
+                <td><input type="password" class="form-control" name="pass2" placeholder="확인 해주세요" id="userpw2" value="${userid.userpw}"></td>        
             </tr>
              
               <tr>
                 <th>이름</th>
-                <td><input type="text" class="form-control" name="username" placeholder="한글이름을 입력해주세요" id="name"></td>        
+                <td><input type="text" class="form-control" name="username" placeholder="한글이름을 입력해주세요" id="name" value="${userid.username }"></td>        
               </tr>
             	  
             <tr>
                 <th>전화번호</th>
-                <td><input type="tel" class="form-control" name="tel" placeholder="ex)010-2321-2341" id="tel"></td>
+                <td><input type="tel" class="form-control" name="tel" placeholder="ex)010-2321-2341" id="tel" value="${userid.tel }"></td>
             </tr>
-            
            	<tr>
                 <th>생년월일</th>
-                <td><input type="text" class="form-control" name="birth" id="datepicker"></td>  
+                <td><input type="text" class="form-control" name="birth" id="datepicker" value="${userid.birth }"></td>  
              </tr>  
             <tr>
                 <th>이메일</th>
-                <td><input type="email" class="form-control" name="email" placeholder="ex)abcde@naver.com" id="email"></td>       
+                <td><input type="email" class="form-control" name="email" placeholder="ex)abcde@naver.com" id="email" value="${userid.email }"></td>       
             </tr>
-            <tr>
-                <th>관리자</th>
-                <td><input type="checkbox" class="form-control" name="admin" id="admin"></td>       
-            </tr>
-            <tr>
-                
+            <tr>           
                 <th>사진</th>                            
                 <td id="picture">
-                <input type="file" class="form-control" name="files" id="files" multiple="multiple">               
-                <img src="../resources/images/noman.png" id="blah">
+                <input type="file" class="form-control" name="files" id="files" value="${userid.photo }">
+               	<img src="displayFile?filename=${userid.photo }" id="blah">             
                 </td>       
             </tr>                    
             <tr>
                 <td colspan="2">
-                <input type="submit" class="btn btn-primary" value="가입" id="btnAdd">
+                <input type="submit" class="btn btn-primary" value="수정" id="btnAdd">
                 <input type="reset" class="btn btn-danger" value="취소">
                 <td>
                 <input type="hidden" class="form-control" value="중복체크" id="dup"></td>               

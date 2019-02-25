@@ -30,7 +30,6 @@ public class UserDaoTest {
 		vo.setTel("010-2032-1234");
 		vo.setBirth("951012");
 		vo.setEmail("supemdm@naver.com");
-		vo.setPhoto("bback.jpg");
 		vo.setAdmin(true);
 		dao.insertUser(vo);
 	}
@@ -53,7 +52,6 @@ public class UserDaoTest {
 		vo.setUsername("모달씨");
 		vo.setTel("111-1234-1542");
 		vo.setEmail("test201@daum.net");
-		vo.setPhoto("bback.jpg");
 		dao.updateUser(vo);
 	}
 	//@Test
@@ -62,8 +60,6 @@ public class UserDaoTest {
 	}
 	@Test
 	public void Test06dulUserid() {
-		UserVO vo = new UserVO();
-		vo.setUserid("test1");
-		dao.dulUserid(vo);
+		System.out.println(dao.dulUserid("user00"));
 	}
 }

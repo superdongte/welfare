@@ -37,6 +37,7 @@
   <div id="seting">
   <button type="button" class="loginSdj" id="myBtn">로그인 ㅣ</button>
   <button type="submit" class="loginSdj" id="regBtn">회원가입</button>	
+  <button type="button" class="loginSdj" id="reginfo">회원정보보기</button>
   </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -82,6 +83,9 @@ $(document).ready(function(){
   });
   $("#regBtn").click(function(){
 	   location.href="${pageContext.request.contextPath}/member/mRegist"; 
+  })
+  $("#reginfo").click(function(){
+	  location.href="${pageContext.request.contextPath}/member/mListAll";
   })
 });
 </script>

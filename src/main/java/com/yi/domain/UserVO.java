@@ -1,5 +1,7 @@
 package com.yi.domain;
 
+import java.util.List;
+
 public class UserVO {
 	private String userid;
 	private String userpw;
@@ -45,6 +47,7 @@ public class UserVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public String getPhoto() {
 		return photo;
 	}
@@ -62,6 +65,7 @@ public class UserVO {
 		return "UserVO [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", tel=" + tel
 				+ ", birth=" + birth + ", email=" + email + ", photo=" + photo + ", admin=" + admin + "]";
 	}
+	
 	
 	
 }

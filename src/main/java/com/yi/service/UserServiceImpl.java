@@ -22,31 +22,40 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserVO readUser(String userid) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.readUser(userid);
 	}
 
 	@Override
 	public List<UserVO> userlistAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.userlistAll();
 	}
 
 	@Override
 	public void updateUser(UserVO vo) {
 		// TODO Auto-generated method stub
-
+		dao.updateUser(vo);
 	}
 
 	@Override
 	public void deleteUser(String userid) {
 		// TODO Auto-generated method stub
-
+		dao.deleteUser(userid);
 	}
 
 	@Override
-	public void dulUserid(UserVO vo) {
+	public boolean dulUserid(String vo) {
 		// TODO Auto-generated method stub
-		dao.dulUserid(vo);
+		try {
+				UserVO user = dao.dulUserid(vo);
+				if(user == null) {
+					return true;
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			return false;	
 	}
-
+		
+		
 }

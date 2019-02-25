@@ -10,5 +10,5 @@ public interface UserDAO {
 	public List<UserVO> userlistAll();
 	public void updateUser(UserVO vo);
 	public void deleteUser(String userid);
-	public void dulUserid(UserVO vo);
+	public UserVO dulUserid(String userid);
 }

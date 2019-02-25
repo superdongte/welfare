@@ -46,9 +46,9 @@ public class UserDaoImpl implements UserDAO {
 	}
 
 	@Override
-	public void dulUserid(UserVO vo) {
+	public UserVO dulUserid(String userid) {
 		// TODO Auto-generated method stub
-		sqlSession.selectOne(namespace + ".dulUserid", vo);
+		return sqlSession.selectOne(namespace + ".dulUserid", userid);
 	}
 
 }
