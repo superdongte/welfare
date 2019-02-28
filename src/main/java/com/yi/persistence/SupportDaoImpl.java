@@ -34,6 +34,18 @@ public class SupportDaoImpl implements SupportDAO{
 		return sqlSession.selectList(namespace +".listSupport");
 	}
 
+	@Override
+	public List<SupportVO> SupportVol() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace +".SupportVol");
+	}
+
+	@Override
+	public List<SupportVO> SupportMoney() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace + ".SupportMoney");
+	}
+
 	
 
 }

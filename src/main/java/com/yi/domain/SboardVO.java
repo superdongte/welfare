@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class SboardVO {
 	private int sbno;
+	private int vnumber;
+	private String vname;
 	private String userid;
 	private String stitle;
 	private String scontent;
@@ -46,6 +48,12 @@ public class SboardVO {
 	}
 	public void setScontent(String scontent) {
 		this.scontent = scontent;
+	}
+	public int getVnumber() {
+		return vnumber;
+	}
+	public void setVnumber(int vnumber) {
+		this.vnumber = vnumber;
 	}
 	@Override
 	public String toString() {

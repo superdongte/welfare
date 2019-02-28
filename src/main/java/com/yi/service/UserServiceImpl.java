@@ -1,7 +1,10 @@
 package com.yi.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +58,12 @@ public class UserServiceImpl implements UserService {
 				e.printStackTrace();
 			}
 			return false;	
+	}
+
+	@Override
+	public UserVO read(String userid, String userpw) {
+		// TODO Auto-generated method stub
+		return dao.read(userid, userpw);
 	}
 		
 		

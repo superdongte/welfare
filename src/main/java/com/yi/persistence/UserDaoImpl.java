@@ -1,6 +1,8 @@
 package com.yi.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,15 @@ public class UserDaoImpl implements UserDAO {
 	public UserVO dulUserid(String userid) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace + ".dulUserid", userid);
+	}
+
+	@Override
+	public UserVO read(String userid, String userpw) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("userpw", userpw);
+		return sqlSession.selectOne(namespace + ".read", map);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.yi.domain;
 public class SupportVO {
 	private String userid;
 	private int vnumber;
+	private String vname;
 	private boolean vgroup;
 	private String vtime;
 	private String carrer;
@@ -10,6 +11,7 @@ public class SupportVO {
 	private String dgroup;
 	private int dmoney;
 	private String dmode;
+	private String tel;
 	
 	public String getUserid() {
 		return userid;
@@ -64,6 +66,18 @@ public class SupportVO {
 	}
 	public void setDmode(String dmode) {
 		this.dmode = dmode;
+	}
+	public String getVname() {
+		return vname;
+	}
+	public void setVname(String vname) {
+		this.vname = vname;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 	@Override
 	public String toString() {

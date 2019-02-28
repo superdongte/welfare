@@ -35,4 +35,10 @@
 		from user
 		where userid = #{userid}
 	</select>
+	
+	<select id="read" resultType="UserVO">
+		select *
+		from user
+		where userid = #{userid} and userpw = #{userpw}
+	</select>
 </mapper>

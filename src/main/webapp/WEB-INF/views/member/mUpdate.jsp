@@ -125,6 +125,7 @@
 				alert("사진을 첨부해주세요")
 				return false;
 			}				
+			alert("수정되었습니다.");
 		})	
 			$("#files").on('change', function(){
 				readURL(this);
@@ -156,8 +157,7 @@
 	 }) 		
 </script>
 <!-- ajax방식으로하기 -->
-<script>
-	
+<script>	
 </script>
 <style>
 	.form-control{

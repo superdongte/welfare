@@ -21,7 +21,7 @@ public class SupportDaoTest {
 	@Autowired
 	private SupportDAO dao;
 	
-	@Test
+	//@Test
 	public void Test01insertSupport() {
 		SupportVO vo = new SupportVO();
 		vo.setUserid("test1");
@@ -32,7 +32,7 @@ public class SupportDaoTest {
 		vo.setVreason("걍한다");
 		dao.insertVolunteer(vo);
 	}
-	@Test
+	//@Test
 	public void Test02insertMoney() {
 		SupportVO vo = new SupportVO();
 		vo.setUserid("test1");
@@ -42,9 +42,23 @@ public class SupportDaoTest {
 		vo.setDmode("짬차와 함께");
 		dao.insertMoney(vo);
 	}
-	@Test
+	//@Test
 	public void Test03listSupport() {
 		List<SupportVO> list = dao.listSupport();
+		for(SupportVO support : list) {
+			System.out.println(support);
+		}
+	}
+	@Test
+	public void Test04SupportVol() {
+		List<SupportVO> list = dao.SupportVol();
+		for(SupportVO support : list) {
+			System.out.println(support);
+		}
+	}
+	//@Test
+	public void Test05SupportMoney() {
+		List<SupportVO> list = dao.SupportMoney();
 		for(SupportVO support : list) {
 			System.out.println(support);
 		}

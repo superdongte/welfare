@@ -11,4 +11,7 @@ public interface UserService {
 	public void updateUser(UserVO vo);
 	public void deleteUser(String userid);
 	public boolean dulUserid(String vo);
+	
+	//로그인 서비스으
+	public UserVO read(String userid, String userpw);
 }

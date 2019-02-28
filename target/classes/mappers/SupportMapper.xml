@@ -9,12 +9,42 @@
 	</insert>
 	
 	<insert id="insertMoney">
-		insert into support(userid, vgroup,dgroup, dmoney, dmode)
-		value(#{userid} ,#{vgroup}, #{dgroup}, #{dmoney}, #{dmode})
+		insert into support(userid, dgroup, vtime, dmoney, dmode)
+		value(#{userid} ,#{dgroup}, #{vtime}, #{dmoney}, #{dmode})
 	</insert>
 	
 	<select id="listSupport" resultType="SupportVO">
 		select *
 		from support
+	</select>
+	
+	<resultMap type="SupportVO" id="SupportVol">
+			<result property="userid" column="userid"/>
+			<result property="tel" column="tel"/>
+			<result property="vname" column="vname"/>
+			<result property="vnumber" column="vnumber"/>
+			<result property="vgroup" column="vgroup"/>
+			<result property="vtime" column="vtime"/>
+			<result property="vreason" column="vreason"/>
+			<result property="carrer" column="carrer"/>
+	</resultMap>
+	<resultMap type="SupportVO" id="SupportGold">
+			<result property="userid" column="userid"></result>
+			<result property="vgroup" column="vgroup"></result>
+			<result property="dgroup" column="dgroup"></result>
+			<result property="dmoney" column="dmoney"></result>
+			<result property="dmode" column="dmode"></result>
+			<result property="tel" column="tel"></result>	
+	</resultMap>
+	
+	<select id="SupportVol" resultMap="SupportVol">
+		select s.userid, vname, vgroup, vtime, vreason, tel
+		from support as s join volunteer as o on s.vnumber = o.vnumber
+		join user as u on s.userid = u.userid;	
+	</select>
+	
+	<select id="SupportMoney" resultMap="SupportGold">
+		select s.userid, vgroup, dgroup, vtime, dmoney, dmode,tel
+		from support as s join user as u on s.userid = u.userid;
 	</select>
 </mapper>

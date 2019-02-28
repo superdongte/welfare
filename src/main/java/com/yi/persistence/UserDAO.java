@@ -11,4 +11,7 @@ public interface UserDAO {
 	public void updateUser(UserVO vo);
 	public void deleteUser(String userid);
 	public UserVO dulUserid(String userid);
+	
+	//로그인 서비스으
+	public UserVO read(String userid, String userpw);
 }
