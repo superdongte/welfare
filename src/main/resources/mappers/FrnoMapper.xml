@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.FrnoMapper">
 	<insert id="insertFreply">
-		insert into free_rno (frno, fbno, frwriter, frcontent, frregdate )
-		value(#{frno}, #{fbno}, #{frwriter}, #{frcontent}, #{frregdate})
+		insert into free_rno (frno, fbno, frwriter, frcontent )
+		value(#{frno}, #{fbno}, #{frwriter}, #{frcontent})
 	</insert>
 	
 	<select id="listAllFreply" resultType="FreplyVO">
@@ -23,4 +23,22 @@
 		delete from free_rno
 		where frno = #{frno}
 	</delete>
+	
+	<select id="listPage" resultType="FreplyVO">
+		select * from free_rno
+		where fbno = #{fbno}
+		order by frno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(fbno) from free_rno where fbno = #{fbno}
+	</select>
+	
+	<select id="selectByFrno" resultType="FreplyVO">
+		select * 
+		from free_rno
+		where frno = #{frno} 
+	</select>
+	
 </mapper>

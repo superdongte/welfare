@@ -13,6 +13,7 @@ public class MediaUtils {
 		mediaMap.put("jpg", MediaType.IMAGE_JPEG);
 		mediaMap.put("png", MediaType.IMAGE_PNG);
 		mediaMap.put("gif", MediaType.IMAGE_GIF);
+		mediaMap.put("jpeg", MediaType.IMAGE_JPEG);
 	}
 	
 	public static MediaType getMediaType(String type) {

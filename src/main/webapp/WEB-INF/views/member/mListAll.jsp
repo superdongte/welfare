@@ -14,7 +14,17 @@
 </head>
 <body>
 	<div class="container">
-  <h2>회원정보</h2>  
+  <h2>회원정보</h2>
+  	<div class="box-body">
+		<select name="searchType">
+			<option value="n">---</option>
+			<option value="u" ${cri.searchType == 'u' ? 'selected':''}>아이디</option>
+			<option value="v" ${cri.searchType == 'v' ? 'selected':''}>이름</option>				
+		</select>
+		<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
+		<button id="btnSearch">찾기</button>
+		<button id="btnNewBoard">New Board</button>
+	</div>  
   <table class="table">
     <thead>
       <tr>
@@ -35,7 +45,30 @@
       </c:forEach>                 
     </tbody>
   </table>
+  <div class="box-footer">
+			<div class="text-center">
+				<ul class="pagination">
+					<c:if test="${pageMaker.prev}">
+					<li><a href="${pageContext.request.contextPath }/member/mListAll?page=${pageMaker.startPage-1}">&laquo;</a></li>
+					</c:if>
+					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+						<li ${pageMaker.cri.page == idx ? 'class="active"':''  }>
+						<a href="${pageContext.request.contextPath }/member/mListAll?page=${idx}&searchType=${cri.searchType}&keyword=${cri.keyword}">${idx}</a></li>
+					</c:forEach>
+					<c:if test="${pageMaker.next}">
+					<li><a href="${pageContext.request.contextPath }/member/mListAll?page=${pageMaker.endPage+1}">&raquo;</a></li>
+					</c:if>
+				</ul>
+			</div>
+		</div>
 </div>
-	
+<script>
+$("#btnSearch").click(function(){
+	var searchType = $("select[name='searchType']").val();
+	var keyword = $("#keywordInput").val();
+	location.href="${pageContext.request.contextPath}/member/mListAll?searchType="
+			+searchType+"&keyword="+keyword;
+	})
+</script>	
 </body>
 </html>

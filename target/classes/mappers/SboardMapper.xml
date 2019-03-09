@@ -30,4 +30,82 @@
 		delete from site_board
 		where sbno = #{sbno}
 	</delete>
+	
+	<select id="listPage" resultType="SboardVO">
+		select *
+		from site_board
+		order by sbno desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="SboardVO">
+		select * from site_board order by sbno desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(fbno) from site_board
+	</select>
+	
+	<insert id="insertSattach">
+		insert into sboard_attach(spname, sbno)
+		values(#{spname}, LAST_INSERT_ID())
+	</insert>
+	
+	<!-- search sql -->
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			where stitle like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'c'.toString()">
+			where scontent like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'w'.toString()">
+			where userid like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			where stitle like CONCAT('%',#{keyword},'%') OR scontent like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			where scontent like CONCAT('%',#{keyword},'%') OR userid like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='tcw'.toString()">
+			where stitle like CONCAT('%',#{keyword},'%')
+			OR scontent like CONCAT('%',#{keyword},'%')
+			OR userid like CONCAT('%',#{keyword},'%')
+		</if>	
+	</sql>
+	
+	<select id="listSearch" resultType="SboardVO">
+		select * from site_board
+		<include refid="search"></include>
+		order by sbno desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="searchTotalCount" resultType="int">
+		select count(sbno) from site_board
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getSattach" resultType="String">
+		select spname
+		from sboard_attach
+		where sbno = #{sbno} order by sregdate 
+	</select>
+	
+	<delete id="delSattach">
+		delete from sboard_attach
+		where sbno = #{sbno}
+	</delete>
+	
+	<delete id="deleteAttachByFullName">
+		delete from sboard_attach 
+		where sbno = #{sbno} and spname=#{spname}
+	</delete>
+	
+	<insert id="insertSattachBySbno">
+		insert into sboard_attach(spname, sbno, sregdate)
+		values (#{spname}, #{sbno}, #{sregdate})
+	</insert>
 </mapper>

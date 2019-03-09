@@ -6,10 +6,12 @@ public class JboardVO {
 	private int jbno;
 	private String userid;
 	private int ornum;
+	private String orname;
 	private String jtitle;
 	private String jcontent;
 	private Date jregdate;
 	private int jviewcnt;
+	
 	public int getJbno() {
 		return jbno;
 	}
@@ -52,6 +54,13 @@ public class JboardVO {
 	}
 	public void setJviewcnt(int jviewcnt) {
 		this.jviewcnt = jviewcnt;
+	}
+	
+	public String getOrname() {
+		return orname;
+	}
+	public void setOrname(String orname) {
+		this.orname = orname;
 	}
 	@Override
 	public String toString() {

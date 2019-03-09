@@ -9,7 +9,7 @@ public class SupportVO {
 	private String carrer;
 	private String vreason;
 	private String dgroup;
-	private int dmoney;
+	private String dmoney;
 	private String dmode;
 	private String tel;
 	
@@ -55,10 +55,11 @@ public class SupportVO {
 	public void setDgroup(String dgroup) {
 		this.dgroup = dgroup;
 	}
-	public int getDmoney() {
+	
+	public String getDmoney() {
 		return dmoney;
 	}
-	public void setDmoney(int dmoney) {
+	public void setDmoney(String dmoney) {
 		this.dmoney = dmoney;
 	}
 	public String getDmode() {

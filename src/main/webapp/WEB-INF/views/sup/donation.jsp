@@ -74,10 +74,10 @@
               <tr>
                 <th>후원금액</th>
                 <td>
-                <input type="radio"  name="dmoney" class="m" value="10,000">10,000원
-                <input type="radio"  name="dmoney" class="m" value="20,000">20,000원
-                <input type="radio"  name="dmoney" class="m" value="40,000">40,000원
-                <input type="radio"  name="dmoney" class="m" value="50,000">50,000원
+                <input type="radio"  name="dmoney" class="m" value="10000">10,000원
+                <input type="radio"  name="dmoney" class="m" value="20000">20,000원
+                <input type="radio"  name="dmoney" class="m" value="40000">40,000원
+                <input type="radio"  name="dmoney" class="m" value="50000">50,000원
                 </td>        
               </tr>
               <tr>
@@ -88,6 +88,7 @@
                 <input type="radio"  name="dmode" class="m" value="대구은행">대구은행
                 <input type="radio"  name="dmode" class="m" value="우리은행">우리은행
                 <input type="radio"  name="dmode" class="m" value="국민은행">국민은행
+                <input type="hidden" name="vgroup" value="1">
                 </td>        
               </tr>
               <tr>

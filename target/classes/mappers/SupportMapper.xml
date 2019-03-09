@@ -4,19 +4,53 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.SupportMapper">
 	<insert id="insertVolunteer">
-		insert into support(userid, vnumber, vgroup, vtime, carrer, vreason)
-		value(#{userid}, #{vnumber}, #{vgroup}, #{vtime}, #{carrer}, #{vreason})
+		insert into support(userid, vnumber, vgroup, vtime, vreason)
+		value(#{userid}, #{vnumber}, #{vgroup}, #{vtime}, #{vreason})
 	</insert>
 	
 	<insert id="insertMoney">
-		insert into support(userid, dgroup, vtime, dmoney, dmode)
-		value(#{userid} ,#{dgroup}, #{vtime}, #{dmoney}, #{dmode})
+		insert into support(userid, dgroup, vgroup ,vtime, dmoney, dmode)
+		value(#{userid} ,#{dgroup}, #{vgroup},#{vtime}, #{dmoney}, #{dmode})
 	</insert>
 	
 	<select id="listSupport" resultType="SupportVO">
 		select *
 		from support
 	</select>
+	
+	<select id="listPage" resultType="SupportVO">
+		select *
+		from support
+		order by vtime desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="SupportVO">
+		select * from support order by vtime desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<!-- search sql -->
+	<sql id="search">
+		<if test="searchType == 'u'.toString()">
+			where userid like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'v'.toString()">
+			where vname like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 't'.toString()">
+			where vtime like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'dg'.toString()">
+			where dgroup like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'vt'.toString()">
+			where vtime like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'dm'.toString()">
+			where dmode like CONCAT('%',#{keyword},'%')
+		</if>
+	</sql>
 	
 	<resultMap type="SupportVO" id="SupportVol">
 			<result property="userid" column="userid"/>
@@ -37,14 +71,40 @@
 			<result property="tel" column="tel"></result>	
 	</resultMap>
 	
-	<select id="SupportVol" resultMap="SupportVol">
+	<select id="SupportVol" resultType="SupportVo">
 		select s.userid, vname, vgroup, vtime, vreason, tel
 		from support as s join volunteer as o on s.vnumber = o.vnumber
-		join user as u on s.userid = u.userid;	
+		join user as u on s.userid = u.userid
+		<include refid="search"></include>
+		order by vtime desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="listSearch" resultType="SupportVO">
+		select s.userid, vname, vgroup, vtime, vreason, tel
+		from support as s join volunteer as o on s.vnumber = o.vnumber
+		join user as u on s.userid = u.userid
+		<include refid="search"></include>
+		order by vtime desc
+		limit #{pageStart}, #{perPageNum}
 	</select>
 	
 	<select id="SupportMoney" resultMap="SupportGold">
 		select s.userid, vgroup, dgroup, vtime, dmoney, dmode,tel
 		from support as s join user as u on s.userid = u.userid;
+	</select>
+	
+	<select id="listMoney" resultType="SupportVO">
+		select s.userid, vgroup, dgroup, vtime, dmoney, dmode, tel
+		from support as s join user as u on s.userid = u.userid
+		<include refid="search"></include>
+		order by vtime desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="searchTotalCount" resultType="int">
+		select count(vtime)
+		from support
+		<include refid="search"></include>
 	</select>
 </mapper>

@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.JboardMapper">
 	<insert id="insertJboard">
-		insert into job_board(jbno, userid, ornum, jtitle, jcontent, jregdate, jviewcnt)
-		value(#{jbno}, #{userid}, #{ornum}, #{jtitle}, #{jcontent}, #{jregdate}, #{jviewcnt})
+		insert into job_board(jbno, userid, ornum, jtitle, jcontent, jviewcnt)
+		value(#{jbno}, #{userid}, #{ornum}, #{jtitle}, #{jcontent}, #{jviewcnt})
 	</insert>
 	
 	<select id="listAllJboard" resultType="JboardVO">
@@ -30,4 +30,57 @@
 		from job_board
 		where jbno = #{jbno}
 	</delete>
+	
+	<select id="listPage" resultType="JboardVO">
+		select *
+		from job_board
+		order by jbno desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="JboardVO">
+		select * from job_board order by jbno desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(jbno) from job_board
+	</select>
+	
+	<!-- search sql -->
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			where jtitle like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'c'.toString()">
+			where jcontent like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'w'.toString()">
+			where orname like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			where jtitle like CONCAT('%',#{keyword},'%') OR jcontent like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			where jcontent like CONCAT('%',#{keyword},'%') OR orname like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='tcw'.toString()">
+			where jtitle like CONCAT('%',#{keyword},'%')
+			OR jcontent like CONCAT('%',#{keyword},'%')
+			OR orname like CONCAT('%',#{keyword},'%')
+		</if>	
+	</sql>
+		
+		<select id="listSearch" resultType="JboardVO">
+			select jbno, jtitle, orname , jregdate, jviewcnt
+			from job_board as j join organize as o on j.ornum = o.ornum
+			<include refid="search"></include>
+			order by jbno desc
+			limit #{pageStart}, #{perPageNum}
+		</select>
+	
+	<select id="searchTotalCount" resultType="int">
+		select count(jbno) from job_board
+		<include refid="search"></include>
+	</select>
 </mapper>

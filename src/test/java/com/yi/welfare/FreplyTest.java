@@ -32,8 +32,8 @@ public class FreplyTest {
 		dao.insertFreply(vo);
 	}
 	//@Test
-	public void Test02listAllFreply() {
-		List<FreplyVO> list = dao.listAllFreply();
+	public void Test02listAllFreply(int frno) {
+		List<FreplyVO> list = dao.listAllFreply(frno);
 		for(FreplyVO freply : list) {
 			System.out.println("reply는"+freply);
 		}

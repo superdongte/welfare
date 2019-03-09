@@ -1,6 +1,7 @@
 package com.yi.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class SboardVO {
 	private int sbno;
@@ -11,6 +12,7 @@ public class SboardVO {
 	private String scontent;
 	private Date sregdate;
 	private int sviewcnt;
+	private List<String> files;
 	
 	public int getSbno() {
 		return sbno;
@@ -55,11 +57,25 @@ public class SboardVO {
 	public void setVnumber(int vnumber) {
 		this.vnumber = vnumber;
 	}
+	public String getVname() {
+		return vname;
+	}
+	public void setVname(String vname) {
+		this.vname = vname;
+	}
+	public List<String> getFiles() {
+		return files;
+	}
+	public void setFiles(List<String> files) {
+		this.files = files;
+	}
 	@Override
 	public String toString() {
-		return "Sboard [sbno=" + sbno + ", userid=" + userid + ", stitle=" + stitle + ", scontent=" + scontent
-				+ ", sregdate=" + sregdate + ", sviewcnt=" + sviewcnt + "]";
+		return "SboardVO [sbno=" + sbno + ", vnumber=" + vnumber + ", vname=" + vname + ", userid=" + userid
+				+ ", stitle=" + stitle + ", scontent=" + scontent + ", sregdate=" + sregdate + ", sviewcnt=" + sviewcnt
+				+ ", files=" + files + "]";
 	}
+	
 	
 	
 	

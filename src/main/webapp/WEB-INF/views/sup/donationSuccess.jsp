@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	도네를 주세요 여러분들의 도네 내 밥값으로 데체되었다.
+	후원해주셔서 감사합니다.
+	<a href="${pageContext.request.contextPath }">홈으로 돌아가기</a>
 </body>
 </html>

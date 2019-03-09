@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../include/header.jsp" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,18 @@
 </head>
 <body>
 	<div class="container">
-  <h2>봉사지원자 조회</h2>  
+ 	 <h2>도네 조회</h2>
+    <div class="box-body">
+		<select name="searchType">
+			<option value="n">---</option>
+			<option value="u" ${cri.searchType == 'u' ? 'selected':''}>아이디</option>
+			<option value="dg" ${cri.searchType == 'dg' ? 'selected':''}>후원방식</option>
+			<option value="vt" ${cri.searchType == 'vt' ? 'selected':''}>후원날짜</option>			
+		</select>
+		<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
+		<button id="btnSearch">찾기</button>
+		<button id="btnNewBoard">New Board</button>
+	</div>	
   <table class="table">
     <thead>
       <tr>
@@ -21,21 +33,49 @@
         <th>후원형태</th>
         <th>금액</th>
         <th>은행명</th>
+        <th>후원날짜</th>
         <th>전화번호</th>
       </tr>
     </thead>
     <tbody>
       	<c:forEach var="mVol" items="${list }" >
       	<tr>
+      		<c:if test="${mVol.vgroup == true }">
       		<td>${mVol.userid }</td>
       		<td>${mVol.dgroup }</td>
       		<td>${mVol.dmoney }</td>
       		<td>${mVol.dmode }</td>
+      		<td>${mVol.vtime }</td>
       		<td>${mVol.tel }</td>
+      		</c:if>
       	</tr>
       	</c:forEach>               
     </tbody>
   </table>
+  <div class="box-footer">
+			<div class="text-center">
+				<ul class="pagination">
+					<c:if test="${pageMaker.prev}">
+					<li><a href="${pageContext.request.contextPath }/sup/sMoney?page=${pageMaker.startPage-1}">&laquo;</a></li>
+					</c:if>
+					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+						<li ${pageMaker.cri.page == idx ? 'class="active"':''  }>
+						<a href="${pageContext.request.contextPath }/sup/sMoney?page=${idx}&searchType=${cri.searchType}&keyword=${cri.keyword}">${idx}</a></li>
+					</c:forEach>
+					<c:if test="${pageMaker.next}">
+					<li><a href="${pageContext.request.contextPath }/sup/sMoney?page=${pageMaker.endPage+1}">&raquo;</a></li>
+					</c:if>
+				</ul>
+			</div>
+		</div>
 </div>
+<script>
+$("#btnSearch").click(function(){
+	var searchType = $("select[name='searchType']").val();
+	var keyword = $("#keywordInput").val();
+	location.href="${pageContext.request.contextPath}/sup/sMoney?searchType="
+			+searchType+"&keyword="+keyword;
+	})
+</script>
 </body>
 </html>

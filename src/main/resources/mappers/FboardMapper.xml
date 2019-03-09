@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yi.mapper.FboardMapper">
 	<insert id="insertFboard">
-		insert into free_board(userid, fgroup, ftitle, fcontent, fregdate, fviewcnt, freplycnt)
-		value(#{userid}, #{fgroup}, #{ftitle}, #{fcontent}, #{fregdate}, #{fviewcnt}, #{freplycnt})	
+		insert into free_board(userid, fgroup, ftitle, fcontent, fviewcnt, freplycnt)
+		value(#{userid}, #{fgroup}, #{ftitle}, #{fcontent}, #{fviewcnt}, #{freplycnt})	
 	</insert>
 	
 	<select id="listAllFboard" resultType="FboardVO">
@@ -29,4 +29,59 @@
 		delete from free_board
 		where fbno = #{fbno}
 	</delete>
+	
+	<select id="listPage" resultType="FboardVO">
+		select * from free_board 
+		order by fbno desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="FboardVO">
+		select * from free_board order by fbno desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(fbno) from free_board
+	</select>
+	
+	<!-- search sql -->
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			where ftitle like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'c'.toString()">
+			where fcontent like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'w'.toString()">
+			where userid like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'tc'.toString()">
+			where ftitle like CONCAT('%',#{keyword},'%') OR fcontent like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'cw'.toString()">
+			where fcontent like CONCAT('%',#{keyword},'%') OR userid like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='tcw'.toString()">
+			where ftitle like CONCAT('%',#{keyword},'%')
+			OR fcontent like CONCAT('%',#{keyword},'%')
+			OR userid like CONCAT('%',#{keyword},'%')
+		</if>	
+	</sql>
+	
+		<select id="listSearch" resultType="FboardVO">
+			select * from free_board 
+			<include refid="search"></include>
+			order by fgroup desc, fbno desc 
+			limit #{pageStart}, #{perPageNum}
+		</select>
+		
+		<select id="searchTotalCount" resultType="int">
+		select count(fbno) from free_board
+		<include refid="search"></include>
+	</select>
+	
+	<update id="updateReplyCnt">
+		update free_board set freplycnt = freplycnt +#{amount} where fbno= #{fbno} 
+	</update>
 </mapper>

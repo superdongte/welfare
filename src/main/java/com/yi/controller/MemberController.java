@@ -30,6 +30,9 @@ import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yi.controller.MemberController;
+import com.yi.domain.Criteria;
+import com.yi.domain.PageMaker;
+import com.yi.domain.SearchCriteria;
 import com.yi.domain.UserVO;
 import com.yi.service.UserService;
 import com.yi.util.MediaUtils;
@@ -94,10 +97,16 @@ public class MemberController {
 		return entity;
 	}
 	@RequestMapping(value="mListAll", method=RequestMethod.GET)
-	public void listMemberlist(Model model) {
-		List<UserVO> list = service.userlistAll();
+	public void listMemberlist(Model model, SearchCriteria cri) {
+		List<UserVO> list = service.listSearch(cri);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.searchTotalCount(cri));
 		System.out.println(list);
 		model.addAttribute("list", list);
+		model.addAttribute("cri", cri);
+		model.addAttribute("pageMaker", pageMaker);
 	}
 	@RequestMapping(value="mRead", method=RequestMethod.GET)
 	public void read(@RequestParam("userid") String userid, Model model) {

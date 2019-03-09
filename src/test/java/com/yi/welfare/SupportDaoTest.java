@@ -33,7 +33,7 @@ public class SupportDaoTest {
 		dao.insertVolunteer(vo);
 	}
 	//@Test
-	public void Test02insertMoney() {
+	/*public void Test02insertMoney() {
 		SupportVO vo = new SupportVO();
 		vo.setUserid("test1");
 		vo.setVgroup(false);
@@ -41,7 +41,7 @@ public class SupportDaoTest {
 		vo.setDmoney(4000);
 		vo.setDmode("짬차와 함께");
 		dao.insertMoney(vo);
-	}
+	}*/
 	//@Test
 	public void Test03listSupport() {
 		List<SupportVO> list = dao.listSupport();

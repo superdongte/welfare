@@ -8,6 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yi.domain.Criteria;
+import com.yi.domain.SearchCriteria;
+import com.yi.domain.SupportVO;
 import com.yi.domain.UserVO;
 @Repository
 public class UserDaoImpl implements UserDAO {
@@ -60,6 +63,34 @@ public class UserDaoImpl implements UserDAO {
 		map.put("userid", userid);
 		map.put("userpw", userpw);
 		return sqlSession.selectOne(namespace + ".read", map);
+	}
+
+	@Override
+	public List<UserVO> listPage(int page) {
+		// TODO Auto-generated method stub
+		if(page < 0) {
+			page = 1;
+		}
+		page = (page-1) * 10;
+		return sqlSession.selectList(namespace + ".listPage", page);
+	}
+
+	@Override
+	public List<UserVO> listCriteria(Criteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace + ".listCriteria", cri);
+	}
+
+	@Override
+	public List<UserVO> listSearch(Criteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace + ".listSearch", cri);
+	}
+
+	@Override
+	public int searchTotalCount(SearchCriteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".searchTotalCount", cri);
 	}
 
 }

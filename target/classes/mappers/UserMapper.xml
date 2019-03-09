@@ -41,4 +41,37 @@
 		from user
 		where userid = #{userid} and userpw = #{userpw}
 	</select>
+	
+	<select id="listPage" resultType="UserVo">
+		select *
+		from user
+		order by userid desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="UserVO">
+		select * from user order by userid desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<sql id="search">
+		<if test="searchType == 'u'.toString()">
+			where userid like CONCAT('%',#{keyword},'%')
+		</if>
+		<if test="searchType == 'v'.toString()">
+			where username like CONCAT('%',#{keyword},'%')
+		</if>	
+	</sql>
+	<select id="listSearch" resultType="UserVO">
+		select *from user
+		<include refid="search"></include>
+		order by userid desc		
+		limit #{pageStart}, #{perPageNum} 
+	</select>
+	
+	<select id="searchTotalCount" resultType="int">
+		select count(userid) from user
+		<include refid="search"></include>
+	</select>
+	
 </mapper>
