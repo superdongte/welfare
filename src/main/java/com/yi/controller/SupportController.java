@@ -65,7 +65,7 @@ public class SupportController {
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.searchTotalCount(cri));
+		pageMaker.setTotalCount(service.searchVolTotalCount(cri));
 		model.addAttribute("list", list);
 		model.addAttribute("cri", cri);
 		model.addAttribute("pageMaker", pageMaker);

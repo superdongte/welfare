@@ -21,59 +21,108 @@
          folder instead of downloading all of them to reduce the load. -->
     <link href="${pageContext.request.contextPath}/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
   	<script src="${pageContext.request.contextPath}/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-  <style>
-  .modal-header, h4, .close {
-    background-color: #5cb85c;
-    color:white !important;
-    text-align: center;
-    font-size: 30px;
+<style>
+  #container{
+  		width:1024px;
+  		margin:0 auto;
   }
-  .modal-footer {
-    background-color: #f9f9f9;
+  .container-fluid{
+  		height: 50px;
+  }
+  .navbar-header img{
+  		width: 100px;
+  		height: 50px;
   }
   #seting{
-  	margin-top:10px;
+  	margin-top:15px;
 	float: right;
-	background-color: #D4F4FA;
-	border-radius: 15px;  
+	border-radius: 15px;
   }
+  #seting a{
+  	color:grey;
+  }  
   .loginSdj{
-  	background-color: #D4F4FA;
   	border: none;
-  	padding-right: 1px;
+  	padding-right: 4px;  	
+  	line-height: 15px;
+  	background-color: none;
   }
-  </style>
+  #loginbox{
+  	margin-top: 1px;  
+  }
+</style>
 </head>
 <body>
 
 <div class="container">
   <!-- Trigger the modal with a button -->
-  <div id="seting">
-  <button type="button" class="loginSdj" id="home">홈화면</button>
-  <button type="button" class="loginSdj" id="myBtn">로그인 ㅣ</button> 
-  <button type="submit" class="loginSdj" id="regBtn">회원가입</button>	
-  <button type="button" class="loginSdj" id="reginfo">회원정보보기</button>
-  <button type="button" class="loginSdj" id="regvol">봉사관리</button>
-  <button type="button" class="loginSdj" id="regor">기관관리</button>
-  <button type="button" class="loginSdj" id="supvol">자원봉사자 확인</button>
-  <button type="button" class="loginSdj" id="supmoney">후원 확인</button>
-  <button type="button" class="loginSdj" id="volservice">봉사 지원</button>
-  <button type="button" class="loginSdj" id="donation">후원 하기</button>
-  <button type="button" class="loginSdj" id="fboard">자유 게시판</button>
-  <button type="button" class="loginSdj" id="sboard">현장 게시판</button>
-  <button type="button" class="loginSdj" id="jboard">구직 게시판</button>
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header navbar-left">      
+      <img src="${pageContext.request.contextPath}/resources/images/sub01.png">
+      <a class="navbar-brand" href="${pageContext.request.contextPath}">동준복지관</a>  
+    </div>
+    <ul class="nav navbar-nav  navbar-right">
+      
+      <li class="dropdown"><a class="dropdown-toggle " data-toggle="dropdown" href="#">사업안내 <span class="caret"></span></a>
+        <ul class="dropdown-menu" >
+          <li><a href="#">사례관리 기능</a></li>
+          <li><a href="#">서비스 제공 기능</a></li>
+          <li><a href="#">지역 조직화 기능</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">나눔활동 <span class="caret"></span></a>
+      	 <ul class="dropdown-menu">
+          <li><a href="${pageContext.request.contextPath}/sup/donation">후원</a></li>
+          <li><a href="${pageContext.request.contextPath}/sup/Volservice">자원봉사</a></li>
+        </ul>      
+      </li>      	           
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판 <span class="caret"></span></a>
+      	 <ul class="dropdown-menu">
+          <li><a href="${pageContext.request.contextPath}/fboard/flist">자유게시판</a></li>
+          <li><a href="${pageContext.request.contextPath}/sboard/slist">현장게시판</a></li>
+          <li><a href="${pageContext.request.contextPath}/jboard/jlist">구직 게시판</a></li>
+        </ul>      
+      </li>
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">복지관소개 <span class="caret"></span></a>
+      	 <ul class="dropdown-menu">
+          <li><a href="#">인사말</a></li>
+          <li><a href="#">비전</a></li>
+          <li><a href="#">연혁</a></li>
+          <li><a href="#">윤리강형헌장</a></li>
+          <li><a href="#">조직도</a></li>
+        </ul>      
+      </li>
+    </ul>
+    <div id="seting">
+   <c:if test="${login.admin == true}">
+  <a href="${pageContext.request.contextPath}/member/mListAll">회원정보보기</a>
+  <a href="${pageContext.request.contextPath}/vol/VolunteerRead">봉사관리</a>
+  <a href="${pageContext.request.contextPath}/organ/OranizeRead">기관관리</a>
+  <a href="${pageContext.request.contextPath}/sup/sVol">자원봉사자 확인</a>
+  <a href="${pageContext.request.contextPath}/sup/sMoney">후원확인</a>
+  	[관리자]
+  </c:if>
+  <c:if test="${login.admin == false }">
+  	<a href="${pageContext.request.contextPath }/member/mRead?userid=${login.userid}">내정보 테스트</a>
+  	<a href="${pageContext.request.contextPath }/sup/sVol?searchType=mu&keyword=${login.userid}">My자원봉사</a>
+  	<a href="${pageContext.request.contextPath }/sup/sMoney?searchType=mm&keyword=${login.userid}">My후원확인</a>
+  	[회원]
+  </c:if>
   </div>
-  <div>
+  </div>
+</nav>
+	<div id="longinbox" align="right">
   	<c:if test="${login != null }">
   		<span>[${login.username}]님 환영합니다.</span>
   		<a href="${pageContext.request.contextPath }/user/logout" class="btnout">로그아웃</a>
   	</c:if>
   	<c:if test="${login == null }">
-  		<a href="${pageContext.request.contextPath }/user/login" class="btnlog">로그인임</a>
+  		<a href="${pageContext.request.contextPath }/user/login" class="btnlog">로그인</a> 	  	
   	</c:if>
-  </div>
+  	<a href="${pageContext.request.contextPath}/member/mRegist">회원가입</a>
+  	</div>
 </div>
- 
 <script>
 $(document).ready(function(){
   $("#home").click(function(){
@@ -117,6 +166,6 @@ $(document).ready(function(){
   })
 });
 </script>
-
+  			 
 </body>
 </html>

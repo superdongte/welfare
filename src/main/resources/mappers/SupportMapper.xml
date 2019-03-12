@@ -33,8 +33,14 @@
 	<!-- search sql -->
 	<sql id="search">
 		<if test="searchType == 'u'.toString()">
-			where userid like CONCAT('%',#{keyword},'%')
+			where s.userid like CONCAT('%',#{keyword},'%')
 		</if>
+		<if test="searchType == 'mu'.toString()">
+			where s.userid = #{keyword}
+		</if>
+		<if test="searchType == 'mm'.toString()">
+			where s.userid = #{keyword}
+		</if>		
 		<if test="searchType == 'v'.toString()">
 			where vname like CONCAT('%',#{keyword},'%')
 		</if>
@@ -103,8 +109,15 @@
 	</select>
 	
 	<select id="searchTotalCount" resultType="int">
-		select count(vtime)
-		from support
+		select count(vtime), s.userid, vgroup, dgroup, vtime, dmoney, dmode, tel
+		from support as s join user as u on s.userid = u.userid
 		<include refid="search"></include>
 	</select>
+	
+	<select id="searchVolTotalCount" resultType="int"> 
+		select count(vtime), s.userid, vname, vgroup, vtime, vreason, tel
+		from support as s join volunteer as o on s.vnumber = o.vnumber
+		join user as u on s.userid = u.userid
+		<include refid="search"></include>
+	</select>	
 </mapper>

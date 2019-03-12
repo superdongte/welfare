@@ -71,4 +71,10 @@ public class SupportServiceImpl implements SupportService {
 		return dao.listMoney(cri);
 	}
 
+	@Override
+	public int searchVolTotalCount(SearchCriteria cri) {
+		// TODO Auto-generated method stub
+		return dao.searchVolTotalCount(cri);
+	}
+
 }

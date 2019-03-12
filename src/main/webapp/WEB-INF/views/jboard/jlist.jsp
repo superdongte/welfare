@@ -36,7 +36,9 @@
 				</select>
 				<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
 				<button id="btnSearch">찾기</button>
+				<c:if test="${login.admin == true }">								
 				<button id="btnNewBoard">게시글쓰기</button>
+				</c:if>
 			</div>
 		</div>					  
 		<div class="box">

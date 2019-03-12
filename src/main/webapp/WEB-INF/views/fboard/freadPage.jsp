@@ -41,9 +41,11 @@
 						</div>
 					</div>
 					<div class="box-footer">
+						<c:if test="${login.userid == FboardVO.userid}">
 						<button type="submit" class="btn btn-primary" id="btnList">GO LIST</button>
 						<button type="submit" class="btn btn-warning" id="btnModify">Modify</button>
 						<button type="submit" class="btn btn-danger" id="btnRemove">Remove</button>
+						</c:if>					
 					</div>
 					
 					<form id="f1" action="" method="post">
@@ -74,7 +76,7 @@
 				</div> <!-- box-header -->
 				<div class="box-body">
 					<label>Writer</label>
-					<input type="text" class="form-control" placeholder="User Id" id="newReplyWriter">
+					<input type="text" class="form-control" placeholder="회원 가입을 해야 입력할수 있습니다." id="newReplyWriter" value="${login.userid}" readonly="readonly">
 					<label>Reply Text</label>
 					<input type="text" class="form-control" placeholder="Reply Text" id="newReplyText">
 				</div><!-- box-body -->
@@ -180,7 +182,10 @@
 			var frwriter = $("#newReplyWriter").val();
 			var frcontent = $("#newReplyText").val();
 			var jsonBody = {fbno:fbno, frwriter:frwriter, frcontent:frcontent } //옆에 있는것이 key값 오른쪽은 변수값
-			
+			if(frwriter == ""){
+				alert("회원가입해주세요")
+				return false;
+			}else{
 			//@RequestBody, header, JSON.stringify
 			$.ajax({
 				url:"${pageContext.request.contextPath}/freplies/",
@@ -199,6 +204,7 @@
 					}
 				}
 			})
+			}
 		}) //end of btnReplyAdd
 		
 		$(document).on("click",".btnDelete",function(){
@@ -283,6 +289,7 @@
 				$("#f1").attr("action","fmodifyPage");
 				$("#f1").attr("method","get");
 			})
+			
 									
 		})					
 	</script>

@@ -83,4 +83,10 @@ public class SupportDaoImpl implements SupportDAO{
 		return sqlSession.selectList(namespace + ".listMoney", cri);
 	}
 
+	@Override
+	public int searchVolTotalCount(SearchCriteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".searchVolTotalCount", cri);
+	}
+
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/header.jsp" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +56,9 @@
   </table>
   	<input type="button" value="회원정보수정" class="btn btn-primary" id="update">
   	<input type="button" class="btn btn-danger" value="탈퇴" id="delete">
-  	<input type="button" class="btn btn-primary" value="돌아가기" id="back"> 
+  	<c:if test="${login.admin == true }">
+  		<input type="button" class="btn btn-primary" value="돌아가기" id="back">
+  	</c:if> 	 
   <form id="m1" action="" method="post">
   	<input type="hidden" name="userid" value="${userid.userid }">
   </form>	 

@@ -18,5 +18,7 @@ public interface SupportDAO {
 	public List<SupportVO> listCriteria(Criteria cri);
 	public List<SupportVO> listSearch(Criteria cri);
 	public List<SupportVO> listMoney(Criteria cri);
+	
 	public int searchTotalCount(SearchCriteria cri);
+	public int searchVolTotalCount(SearchCriteria cri);			
 }

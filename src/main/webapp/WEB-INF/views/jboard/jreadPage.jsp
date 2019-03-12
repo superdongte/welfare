@@ -40,12 +40,14 @@
 								placeholder="Enter Writer" value="${JboardVO.userid }" readonly="readonly"> 
 						</div>
 					</div>
+					
 					<div class="box-footer">
+					<c:if test="${login.userid == JboardVO.userid}">
 						<button type="submit" class="btn btn-primary" id="btnList">GO LIST</button>
 						<button type="submit" class="btn btn-warning" id="btnModify">Modify</button>
 						<button type="submit" class="btn btn-danger" id="btnRemove">Remove</button>
-					</div>
-					
+					</c:if>
+					</div>				
 					<form id="f1" action="" method="post">
 						<input type="hidden" name="jbno" value="${JboardVO.jbno }">
 						<input type="hidden" name="page" value="${cri.page }">

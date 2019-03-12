@@ -14,17 +14,24 @@
 </head>
 <body>
 	<div class="container">
- 	 <h2>도네 조회</h2>
+ 	 <c:if test="${login.admin == true}">
+ 	 	<h2>후원 조회</h2>
+ 	 </c:if>
+ 	 <c:if test="${login.admin == false }">
+ 	 	<h3>My 후원</h3>
+ 	 </c:if>
     <div class="box-body">
+		<c:if test="${login.admin == true }">
 		<select name="searchType">
 			<option value="n">---</option>
 			<option value="u" ${cri.searchType == 'u' ? 'selected':''}>아이디</option>
-			<option value="dg" ${cri.searchType == 'dg' ? 'selected':''}>후원방식</option>
+			<option value="dg" ${cri.searchType == 'dg' ? 'selected':''}>후원형태</option>
 			<option value="vt" ${cri.searchType == 'vt' ? 'selected':''}>후원날짜</option>			
 		</select>
-		<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
-		<button id="btnSearch">찾기</button>
-		<button id="btnNewBoard">New Board</button>
+		<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">		
+			<button id="btnSearch">찾기</button>
+			<button id="btnNewBoard">초기화</button>
+		</c:if>		
 	</div>	
   <table class="table">
     <thead>

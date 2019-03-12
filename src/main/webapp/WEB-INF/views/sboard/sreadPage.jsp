@@ -44,12 +44,13 @@
 							</c:forEach>
 						</div>
 					</div>
+					<c:if test="${login.userid == SboardVO.userid}">
 					<div class="box-footer">
 						<button type="submit" class="btn btn-primary" id="btnList">GO LIST</button>
 						<button type="submit" class="btn btn-warning" id="btnModify">Modify</button>
 						<button type="submit" class="btn btn-danger" id="btnRemove">Remove</button>
 					</div>
-					
+					</c:if>
 					<form id="f1" action="" method="post">
 						<input type="hidden" name="sbno" value="${SboardVO.sbno }">
 						<input type="hidden" name="page" value="${cri.page }">

@@ -27,7 +27,7 @@ public class UserController {
 		logger.info("login GET------");
 	}
 	@RequestMapping(value="loginPost", method=RequestMethod.POST)
-	public void loginPost(String userid, String userpw, Model model) {
+	public void loginPost(String userid, String userpw, Model model, boolean admin) {
 		logger.info("login POST ----------------"); 
 		UserVO vo = service.read(userid, userpw);
 		System.out.println("vo는"+vo);
@@ -38,6 +38,7 @@ public class UserController {
 		LoginDTO dto = new LoginDTO();
 		dto.setUserid(vo.getUserid());
 		dto.setUsername(vo.getUsername());
+		dto.setAdmin(vo.isAdmin());
 		model.addAttribute("loginDTO", dto);
 		System.out.println("dto는"+dto);
 		//"loginDTO" 값이 logininterceptor에 감

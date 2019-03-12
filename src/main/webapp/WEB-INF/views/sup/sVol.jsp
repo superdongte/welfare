@@ -14,15 +14,24 @@
 </head>
 <body>
 	<div class="container">
-  <h2>봉사지원자 조회</h2>
+  	<c:if test="${login.admin == true}">
+  		<h2>봉사지원자 조회</h2>	
+  	</c:if>
+  	<c:if test="${login.admin == false}">
+  		<h2>My봉사</h2>
+  	</c:if>
+  	
   <div class="box-body">
+		<c:if test="${login.admin == true }">
 		<select name="searchType">
 			<option value="n">---</option>
-			<option value="t" ${cri.searchType == 't' ? 'selected':''}>봉사시간</option>				
+			<option value="t" ${cri.searchType == 't' ? 'selected':''}>봉사시간</option>
+			<option value="v" ${cri.searchType == 'v' ? 'selected':''}>봉사명</option>				
 		</select>
 		<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
 		<button id="btnSearch">찾기</button>
 		<button id="btnNewBoard">New Board</button>
+		</c:if>
 	</div>  
   <table class="table">
     <thead>

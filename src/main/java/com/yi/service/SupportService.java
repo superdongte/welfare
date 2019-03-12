@@ -18,4 +18,5 @@ public interface SupportService {
 	public List<SupportVO> listSearch(Criteria cri);
 	public List<SupportVO> listMoney(Criteria cri);
 	public int searchTotalCount(SearchCriteria cri);
+	public int searchVolTotalCount(SearchCriteria cri);
 }

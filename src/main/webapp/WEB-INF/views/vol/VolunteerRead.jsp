@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -133,22 +133,22 @@
 </script>
 <style>
 .custab{
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 5% 0;
-    box-shadow: 3px 3px 2px #ccc;
-    transition: 0.5s;
+    border: 1px solid #ccc !important;
+    padding: 5px !important;
+    margin: 5% 0 !important;
+    box-shadow: 3px 3px 2px #ccc !important;
+    transition: 0.5s !important;
     }
 .custab:hover{
-    box-shadow: 3px 3px 0px transparent;
-    transition: 0.5s;
+    box-shadow: 3px 3px 0px transparent !important;
+    transition: 0.5s !important;
     }
 a.btn{
-	margin-left:5px;
+	margin-left:5px !important;
 	color: white  !important;  
 }
 #btnwrap{
-	padding-top: 50px;
+	padding-top: 50px !important;
 }    
 </style>
 </head>
