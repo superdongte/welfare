@@ -7,8 +7,11 @@
 		width:100px;
 		float:left;
 		margin:5px;
+	}	
+	.content{
+		width:70%;
+		margin:0 auto;	
 	}
-
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <section class="content">
@@ -16,22 +19,22 @@
 		<div class="col-sm-12">
 			<div class="box">
 			<div class="box-header with-border">
-				<h3 class="box-title">Home Page</h3>
+				<h3 class="box-title">현장 게시판</h3>
 			</div>
 					<div class="box-body">
 						<div class="form-group">
-							<label>Title</label>
+							<label>제목</label>
 							<input type="text" name="title" class="form-control"
 								placeholder="Enter Title" value="${SboardVO.stitle}"
 								readonly="readonly">
 						</div>
 						<div class="form-group">
-							<label>Content</label>
+							<label>내용</label>
 							<textarea rows="5" class="form-control"
 							name="content" placeholder="Enter Content" readonly="readonly">${SboardVO.scontent }</textarea>
 						</div>
 						<div class="form-group">
-							<label>Writer</label>
+							<label>작성자</label>
 							<input type="text" name="writer" class="form-control"
 								placeholder="Enter Writer" value="${SboardVO.userid }" readonly="readonly"> 
 						</div>
@@ -116,3 +119,4 @@
 			
 		})
 	</script>
+<%@ include file="../include/footer.jsp" %>	

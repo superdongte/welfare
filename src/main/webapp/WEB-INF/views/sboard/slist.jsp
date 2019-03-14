@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
 	.content{
-		width:60%;
+		width:70%;
 		margin:0 auto;	
 	}
 
@@ -28,8 +28,8 @@
 					<option value="tcw" ${cri.searchType == 'tcw' ? 'selected':''}>제목 또는 내용 또는 작성자</option>				
 				</select>
 				<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
-				<button id="btnSearch">Search</button>
-				<button id="btnNewBoard">New Board</button>
+				<button id="btnSearch">찾기</button>
+				<button id="btnNewBoard">새글작성</button>
 			</div>
 		</div>					  
 		<div class="box">
@@ -76,8 +76,9 @@
 		</div>
 		</div>
 		</div>
-	</div>
+	</div>	
 </section>
+
 <script>
 	$(function(){
 		$("#btnSearch").click(function(){
@@ -92,3 +93,4 @@
 	})
 
 </script>
+<%@ include file="../include/footer.jsp" %>

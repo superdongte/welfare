@@ -15,7 +15,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 			<div class="box-header with-border">
-				<h3 class="box-title">REGISTER BOARD</h3>
+				<h3 class="box-title">등록</h3>
 			</div>			
 				<form role="form" method="post" action="jregister" enctype="multipart/form-data">
 					<div class="box-body">
@@ -51,4 +51,4 @@
 		</div>
 	</div>
 </section>
-
+<%@ include file="../include/footer.jsp" %>

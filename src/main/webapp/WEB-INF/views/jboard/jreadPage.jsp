@@ -20,7 +20,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 			<div class="box-header with-border">
-				<h3 class="box-title">Home Page</h3>
+				<h3 class="box-title">구직게시판</h3>
 			</div>
 					<div class="box-body">
 						<div class="form-group">
@@ -43,9 +43,9 @@
 					
 					<div class="box-footer">
 					<c:if test="${login.userid == JboardVO.userid}">
-						<button type="submit" class="btn btn-primary" id="btnList">GO LIST</button>
-						<button type="submit" class="btn btn-warning" id="btnModify">Modify</button>
-						<button type="submit" class="btn btn-danger" id="btnRemove">Remove</button>
+						<button type="submit" class="btn btn-primary" id="btnList">목록</button>
+						<button type="submit" class="btn btn-warning" id="btnModify">변경</button>
+						<button type="submit" class="btn btn-danger" id="btnRemove">삭제</button>
 					</c:if>
 					</div>				
 					<form id="f1" action="" method="post">
@@ -88,3 +88,4 @@
 									
 		})					
 	</script>
+<%@ include file="../include/footer.jsp" %>	

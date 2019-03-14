@@ -3,6 +3,13 @@
 <%@ include file="../include/header.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<style>
+	.content{
+		width:70%;
+		margin:0 auto;	
+	}
+
+</style>
 <section class="content">
 	<div class="row">
 		<div class="col-sm-12">
@@ -71,3 +78,4 @@
 		</div>
 	</div>
 </section>
+<%@ include file="../include/footer.jsp" %>

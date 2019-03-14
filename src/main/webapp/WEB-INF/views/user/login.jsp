@@ -29,7 +29,7 @@
 <body class="login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="#"><b>로그인</b> <br>머찐복지관</a>
+			<a href="${pageContext.request.contextPath }"><b>로그인</b> <br>동준복지관</a>
 		</div>
 		<div class="login-box-body">
 			<p class="login-box-msg">환영합니다.</p>

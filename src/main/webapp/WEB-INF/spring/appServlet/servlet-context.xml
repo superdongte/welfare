@@ -40,5 +40,12 @@
 			<mapping path="/user/loginPost"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
+		<interceptor>
+			<mapping path="/fboard/fregister"/>
+			<mapping path="/sboard/sregister"/>
+			<mapping path="/sup/donation"/>
+			<mapping path="/sup/Volservice"/>
+			<beans:ref bean="AuthInterceptor"/>
+		</interceptor>
 	</interceptors>
 </beans:beans>

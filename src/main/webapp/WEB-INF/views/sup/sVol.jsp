@@ -30,7 +30,7 @@
 		</select>
 		<input type="text" name="keyword" id="keywordInput" value="${cri.keyword }">
 		<button id="btnSearch">찾기</button>
-		<button id="btnNewBoard">New Board</button>
+		<button id="btnNew">새로고침</button>
 		</c:if>
 	</div>  
   <table class="table">
@@ -80,7 +80,11 @@ $("#btnSearch").click(function(){
 	location.href="${pageContext.request.contextPath}/sup/sVol?searchType="
 			+searchType+"&keyword="+keyword;
 	})
+$("#btnNew").click(function(){
+	location.href="${pageContext.request.contextPath}/sup/sVol"
+})	
 </script>  
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

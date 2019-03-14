@@ -19,6 +19,13 @@
 
 
 </script>
+<style>
+	.content{
+		width:70%;
+		margin:0 auto;	
+	}
+
+</style>
 <section class="content">
 	<div class="row">
 		<div class="col-sm-12">
@@ -47,10 +54,11 @@
 						</div>			
 					</div>
 					<div class="box-footer">
-						<button type="submit" class="btn btn-primary" id="confirm">Submit</button>
+						<button type="submit" class="btn btn-primary" id="confirm">적용</button>
 					</div>
 				</form>			
 		</div>
 		</div>
 	</div>
 </section>
+<%@ include file="../include/footer.jsp" %>

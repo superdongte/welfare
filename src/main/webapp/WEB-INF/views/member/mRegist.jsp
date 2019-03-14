@@ -224,7 +224,7 @@
             </tr>
             <tr>
                 <th>관리자</th>
-                <td><input type="checkbox" class="form-control" name="admin" id="admin"></td>       
+                <td><input type="checkbox" name="admin" id="admin"></td>       
             </tr>
             <tr>
                 
@@ -247,5 +247,6 @@
     </div>
     </div>
 </div>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

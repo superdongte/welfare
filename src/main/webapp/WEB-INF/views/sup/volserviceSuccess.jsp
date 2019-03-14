@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	등록해주셔서 감사합니당.
+	<img src="${pageContext.request.contextPath }/resources/images/G05.png">
+	등록해주셔서 감사합니당.	
 	<a href="${pageContext.request.contextPath }">홈으로 돌아가기</a>
+<%@ include file="../include/footer.jsp" %>	
 </body>
 </html>

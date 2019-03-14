@@ -156,7 +156,7 @@ a.btn{
 	<div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle" id="btnwrap">
     	<a href="#" class="btn btn-primary btn-xs pull-right" id="addbtn"><b>+</b> 봉사활동 추가</a>
-    	<a href="#" class="btn btn-primary btn-xs pull-right" >돌아가기</a>
+    	<a href="${pageContext.request.contextPath }" class="btn btn-primary btn-xs pull-right" >돌아가기</a>
     </div>
     <div id="vlist">
 

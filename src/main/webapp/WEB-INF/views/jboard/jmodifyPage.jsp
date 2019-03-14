@@ -17,12 +17,19 @@
 		})
 	})
 </script>
+<style>
+	.content{
+		width:70%;
+		margin:0 auto;	
+	}
+
+</style>
 <section class="content">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="box">
 			<div class="box-header with-border">
-				<h3 class="box-title">REGISTER BOARD</h3>
+				<h3 class="box-title">수정하기</h3>
 			</div>			
 				<form role="form" method="post" action="jmodifyPage">
 				<input type="hidden" name="jbno" value="${JboardVO.jbno }">
@@ -52,3 +59,4 @@
 		</div>
 	</div>
 </section>
+<%@ include file="../include/footer.jsp" %>

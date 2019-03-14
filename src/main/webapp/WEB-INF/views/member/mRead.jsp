@@ -25,8 +25,7 @@
 </style>
 <body>
 <div class="container">
-  <h2>Contextual Classes</h2>
-  <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
+  <h2>회원상세정보</h2>
   <table class="table">
     <tbody>
       <tr>
@@ -86,5 +85,6 @@
 	})
 
 </script>
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

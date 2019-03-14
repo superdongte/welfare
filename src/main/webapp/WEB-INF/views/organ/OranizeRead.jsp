@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp" %>    
+    pageEncoding="UTF-8"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,7 +156,7 @@ a.btn{
 	<div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle" id="btnwrap">
     	<a href="#" class="btn btn-primary btn-xs pull-right" id="addbtn"><b>+</b> 기관 추가</a>
-    	<a href="#" class="btn btn-primary btn-xs pull-right" >돌아가기</a>
+    	<a href="${pageContext.request.contextPath }" class="btn btn-primary btn-xs pull-right" >돌아가기</a>
     </div>
     <div id="orlist">
 
@@ -212,7 +211,6 @@ a.btn{
     </div>
   </div>
 <!-- end insert edit -->
-
 
 </body>
 </html>

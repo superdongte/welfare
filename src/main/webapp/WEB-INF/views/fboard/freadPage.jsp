@@ -20,7 +20,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 			<div class="box-header with-border">
-				<h3 class="box-title">Home Page</h3>
+				<h3 class="box-title">자유 게시판</h3>
 			</div>
 					<div class="box-body">
 						<div class="form-group">
@@ -42,9 +42,9 @@
 					</div>
 					<div class="box-footer">
 						<c:if test="${login.userid == FboardVO.userid}">
-						<button type="submit" class="btn btn-primary" id="btnList">GO LIST</button>
-						<button type="submit" class="btn btn-warning" id="btnModify">Modify</button>
-						<button type="submit" class="btn btn-danger" id="btnRemove">Remove</button>
+						<button type="submit" class="btn btn-primary" id="btnList">목록</button>
+						<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
+						<button type="submit" class="btn btn-danger" id="btnRemove">삭제</button>
 						</c:if>					
 					</div>
 					
@@ -72,21 +72,21 @@
 		<div class="col-xs-12">
 			<div class="box box-success">
 				<div class="box-header">
-					<h3 class="box-title">ADD NEW REPLY</h3>		
+					<h3 class="box-title">댓글 달기</h3>		
 				</div> <!-- box-header -->
 				<div class="box-body">
-					<label>Writer</label>
+					<label>작성자</label>
 					<input type="text" class="form-control" placeholder="회원 가입을 해야 입력할수 있습니다." id="newReplyWriter" value="${login.userid}" readonly="readonly">
-					<label>Reply Text</label>
-					<input type="text" class="form-control" placeholder="Reply Text" id="newReplyText">
+					<label>댓글내용</label>
+					<input type="text" class="form-control" placeholder="글 써주세요" id="newReplyText">
 				</div><!-- box-body -->
 				<div class="box-footer">
-					<button class="btn btn-primary" id="btnReplyAdd">ADD REPLY</button>
+					<button class="btn btn-primary" id="btnReplyAdd">댓글 추가</button>
 				</div> <!-- box-footer -->
 			</div><!-- box box-success -->
 			<ul class="timeline">
 				<li class="time-label" id="reliesDiv">
-					<span class="bg-green">Replies List[${FboardVO.freplycnt}]</span>
+					<span class="bg-green">총 댓글수[${FboardVO.freplycnt}]</span>
 				</li>								
 			</ul>
 			<div class="text-center">
@@ -126,8 +126,8 @@
 	</h3>
 	<div class="timeline-body">{{frcontent}}</div>
 	<div class="timeline-footer">
-		<a class="btn btn-primary btn-xs btnModify" data-toggle="modal" data-target="#modifyModal">Modify</a>
-		<a class="btn btn-danger btn-xs btnDelete">Delete</a>
+		<a class="btn btn-primary btn-xs btnModify" data-toggle="modal" data-target="#modifyModal">수정</a>
+		<a class="btn btn-danger btn-xs btnDelete">삭제</a>
 	</div>
 </div>
 </li>
@@ -293,3 +293,4 @@
 									
 		})					
 	</script>
+<%@ include file="../include/footer.jsp" %>	

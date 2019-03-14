@@ -96,16 +96,16 @@
     </ul>
     <div id="seting">
    <c:if test="${login.admin == true}">
-  <a href="${pageContext.request.contextPath}/member/mListAll">회원정보보기</a>
-  <a href="${pageContext.request.contextPath}/vol/VolunteerRead">봉사관리</a>
-  <a href="${pageContext.request.contextPath}/organ/OranizeRead">기관관리</a>
-  <a href="${pageContext.request.contextPath}/sup/sVol">자원봉사자 확인</a>
+  <a href="${pageContext.request.contextPath}/member/mListAll">회원정보보기 |</a>
+  <a href="${pageContext.request.contextPath}/vol/VolunteerRead">봉사관리 |</a>
+  <a href="${pageContext.request.contextPath}/organ/OranizeRead">기관관리 |</a>
+  <a href="${pageContext.request.contextPath}/sup/sVol">자원봉사자 확인 |</a>
   <a href="${pageContext.request.contextPath}/sup/sMoney">후원확인</a>
   	[관리자]
   </c:if>
   <c:if test="${login.admin == false }">
-  	<a href="${pageContext.request.contextPath }/member/mRead?userid=${login.userid}">내정보 테스트</a>
-  	<a href="${pageContext.request.contextPath }/sup/sVol?searchType=mu&keyword=${login.userid}">My자원봉사</a>
+  	<a href="${pageContext.request.contextPath }/member/mRead?userid=${login.userid}">내정보 |</a>
+  	<a href="${pageContext.request.contextPath }/sup/sVol?searchType=mu&keyword=${login.userid}">My자원봉사|</a>
   	<a href="${pageContext.request.contextPath }/sup/sMoney?searchType=mm&keyword=${login.userid}">My후원확인</a>
   	[회원]
   </c:if>

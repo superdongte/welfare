@@ -14,7 +14,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 			<div class="box-header with-border">
-				<h3 class="box-title">REGISTER BOARD</h3>
+				<h3 class="box-title">게시글 쓰기</h3>
 			</div>			
 				<form role="form" method="post" action="fregister" enctype="multipart/form-data">
 					<div class="box-body">
@@ -42,11 +42,11 @@
 						</div>
 					</div>
 					<div class="box-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary">적용</button>
 					</div>
 				</form>			
 		</div>
 		</div>
 	</div>
 </section>
-
+<%@ include file="../include/footer.jsp" %>
