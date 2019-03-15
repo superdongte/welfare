@@ -124,11 +124,11 @@
 	<h3 class="timeline-header">
 		<strong>{{frno}}</strong> -{{frwriter}}
 	</h3>
-	<div class="timeline-body">{{frcontent}}</div>
+	<div class="timeline-body">{{frcontent}}</div>	
 	<div class="timeline-footer">
 		<a class="btn btn-primary btn-xs btnModify" data-toggle="modal" data-target="#modifyModal">수정</a>
 		<a class="btn btn-danger btn-xs btnDelete">삭제</a>
-	</div>
+	</div>		
 </div>
 </li>
 {{/each}}
